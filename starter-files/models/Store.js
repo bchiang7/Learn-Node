@@ -35,6 +35,11 @@ const storeSchema = new mongoose.Schema({
     },
   },
   photo: String,
+  author: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'User',
+    required: 'You must suplly an author',
+  },
 });
 
 storeSchema.pre('save', async function(next) {
