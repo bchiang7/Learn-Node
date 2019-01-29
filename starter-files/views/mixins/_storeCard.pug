@@ -11,7 +11,7 @@ mixin storeCard(store ={})
                 != h.icon('heart')
         if user && store.author.equals(user._id)
           .store__action.store__action--edit
-            a(href=`/store/${store._id}/edit`)
+            a(href=`/stores/${store._id}/edit`)
               != h.icon('pencil')
         if store.reviews
           .store__action.store__action--count

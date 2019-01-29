@@ -1,16 +1,14 @@
 /******/ (function(modules) {
   // webpackBootstrap
   /******/ // The module cache
-  /******/ const installedModules = {}; // The require function
+  /******/ var installedModules = {}; // The require function
   /******/
   /******/ /******/ function __webpack_require__(moduleId) {
     /******/
     /******/ // Check if module is in cache
-    /******/ if (installedModules[moduleId]) {
-      /******/ return installedModules[moduleId].exports;
-    } // Create a new module (and put it into the cache)
+    /******/ if (installedModules[moduleId]) /******/ return installedModules[moduleId].exports; // Create a new module (and put it into the cache)
     /******/
-    /******/ /******/ const module = (installedModules[moduleId] = {
+    /******/ /******/ var module = (installedModules[moduleId] = {
       /******/ i: moduleId,
       /******/ l: false,
       /******/ exports: {},
@@ -53,7 +51,7 @@
   }; // getDefaultExport function for compatibility with non-harmony modules
   /******/
   /******/ /******/ __webpack_require__.n = function(module) {
-    /******/ const getter =
+    /******/ var getter =
       module && module.__esModule
         ? /******/ function getDefault() {
             return module['default'];
@@ -81,7 +79,7 @@
     /***/ function(module, exports, __webpack_require__) {
       'use strict';
 
-      const _typeof =
+      var _typeof =
         typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol'
           ? function(obj) {
               return typeof obj;
@@ -95,13 +93,13 @@
                 : typeof obj;
             };
 
-      const bind = __webpack_require__(8);
+      var bind = __webpack_require__(8);
 
       /*global toString:true*/
 
       // utils is a library of generic helper functions non-specific to axios
 
-      const toString = Object.prototype.toString;
+      var toString = Object.prototype.toString;
 
       /**
        * Determine if a value is an Array
@@ -140,7 +138,7 @@
        * @returns {boolean} True if value is a view on an ArrayBuffer, otherwise false
        */
       function isArrayBufferView(val) {
-        let result;
+        var result;
         if (typeof ArrayBuffer !== 'undefined' && ArrayBuffer.isView) {
           result = ArrayBuffer.isView(val);
         } else {
@@ -311,12 +309,12 @@
 
         if (isArray(obj)) {
           // Iterate over array values
-          for (let i = 0, l = obj.length; i < l; i++) {
+          for (var i = 0, l = obj.length; i < l; i++) {
             fn.call(null, obj[i], i, obj);
           }
         } else {
           // Iterate over object keys
-          for (const key in obj) {
+          for (var key in obj) {
             if (Object.prototype.hasOwnProperty.call(obj, key)) {
               fn.call(null, obj[key], key, obj);
             }
@@ -342,7 +340,7 @@
        * @returns {Object} Result of all merge properties
        */
       function merge() /* obj1, obj2, obj3, ... */ {
-        const result = {};
+        var result = {};
         function assignValue(val, key) {
           if (
             _typeof(result[key]) === 'object' &&
@@ -354,7 +352,7 @@
           }
         }
 
-        for (let i = 0, l = arguments.length; i < l; i++) {
+        for (var i = 0, l = arguments.length; i < l; i++) {
           forEach(arguments[i], assignValue);
         }
         return result;
@@ -412,8 +410,8 @@
       });
       // based on https://gist.github.com/paulirish/12fb951a8b893a454b32
 
-      const $ = document.querySelector.bind(document);
-      const $$ = document.querySelectorAll.bind(document);
+      var $ = document.querySelector.bind(document);
+      var $$ = document.querySelectorAll.bind(document);
 
       Node.prototype.on = window.on = function(name, fn) {
         this.addEventListener(name, fn);
@@ -444,11 +442,11 @@
     /***/ function(module, exports, __webpack_require__) {
       'use strict';
       /* WEBPACK VAR INJECTION */ (function(process) {
-        const utils = __webpack_require__(0);
-        const normalizeHeaderName = __webpack_require__(29);
+        var utils = __webpack_require__(0);
+        var normalizeHeaderName = __webpack_require__(29);
 
-        const PROTECTION_PREFIX = /^\)\]\}',?\n/;
-        const DEFAULT_CONTENT_TYPE = {
+        var PROTECTION_PREFIX = /^\)\]\}',?\n/;
+        var DEFAULT_CONTENT_TYPE = {
           'Content-Type': 'application/x-www-form-urlencoded',
         };
 
@@ -459,7 +457,7 @@
         }
 
         function getDefaultAdapter() {
-          let adapter;
+          var adapter;
           if (typeof XMLHttpRequest !== 'undefined') {
             // For browsers use XHR adapter
             adapter = __webpack_require__(4);
@@ -470,7 +468,7 @@
           return adapter;
         }
 
-        const defaults = {
+        var defaults = {
           adapter: getDefaultAdapter(),
 
           transformRequest: [
@@ -551,28 +549,28 @@
     /***/ function(module, exports, __webpack_require__) {
       'use strict';
       /* WEBPACK VAR INJECTION */ (function(process) {
-        const utils = __webpack_require__(0);
-        const settle = __webpack_require__(21);
-        const buildURL = __webpack_require__(24);
-        const parseHeaders = __webpack_require__(30);
-        const isURLSameOrigin = __webpack_require__(28);
-        const createError = __webpack_require__(7);
-        const btoa =
+        var utils = __webpack_require__(0);
+        var settle = __webpack_require__(21);
+        var buildURL = __webpack_require__(24);
+        var parseHeaders = __webpack_require__(30);
+        var isURLSameOrigin = __webpack_require__(28);
+        var createError = __webpack_require__(7);
+        var btoa =
           (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) ||
           __webpack_require__(23);
 
         module.exports = function xhrAdapter(config) {
           return new Promise(function dispatchXhrRequest(resolve, reject) {
-            let requestData = config.data;
-            const requestHeaders = config.headers;
+            var requestData = config.data;
+            var requestHeaders = config.headers;
 
             if (utils.isFormData(requestData)) {
               delete requestHeaders['Content-Type']; // Let the browser set it
             }
 
-            let request = new XMLHttpRequest();
-            let loadEvent = 'onreadystatechange';
-            let xDomain = false;
+            var request = new XMLHttpRequest();
+            var loadEvent = 'onreadystatechange';
+            var xDomain = false;
 
             // For IE 8/9 CORS support
             // Only supports POST and GET calls and doesn't returns the response headers.
@@ -593,9 +591,9 @@
 
             // HTTP basic authentication
             if (config.auth) {
-              const username = config.auth.username || '';
-              const password = config.auth.password || '';
-              requestHeaders.Authorization = `Basic ${btoa(`${username}:${password}`)}`;
+              var username = config.auth.username || '';
+              var password = config.auth.password || '';
+              requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);
             }
 
             request.open(
@@ -625,15 +623,15 @@
               }
 
               // Prepare the response
-              const responseHeaders =
+              var responseHeaders =
                 'getAllResponseHeaders' in request
                   ? parseHeaders(request.getAllResponseHeaders())
                   : null;
-              const responseData =
+              var responseData =
                 !config.responseType || config.responseType === 'text'
                   ? request.responseText
                   : request.response;
-              const response = {
+              var response = {
                 data: responseData,
                 // IE sends 1223 instead of 204 (https://github.com/mzabriskie/axios/issues/201)
                 status: request.status === 1223 ? 204 : request.status,
@@ -662,7 +660,7 @@
             // Handle timeout
             request.ontimeout = function handleTimeout() {
               reject(
-                createError(`timeout of ${config.timeout}ms exceeded`, config, 'ECONNABORTED'),
+                createError('timeout of ' + config.timeout + 'ms exceeded', config, 'ECONNABORTED'),
               );
 
               // Clean up request
@@ -673,10 +671,10 @@
             // This is only done if running in a standard browser environment.
             // Specifically not if we're in a web worker, or react-native.
             if (utils.isStandardBrowserEnv()) {
-              const cookies = __webpack_require__(26);
+              var cookies = __webpack_require__(26);
 
               // Add xsrf header
-              const xsrfValue =
+              var xsrfValue =
                 (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName
                   ? cookies.read(config.xsrfCookieName)
                   : undefined;
@@ -768,7 +766,7 @@
       }
 
       Cancel.prototype.toString = function toString() {
-        return `Cancel${this.message ? `: ${this.message}` : ''}`;
+        return 'Cancel' + (this.message ? ': ' + this.message : '');
       };
 
       Cancel.prototype.__CANCEL__ = true;
@@ -791,7 +789,7 @@
     /***/ function(module, exports, __webpack_require__) {
       'use strict';
 
-      const enhanceError = __webpack_require__(20);
+      var enhanceError = __webpack_require__(20);
 
       /**
  * Create an Error with the specified message, config, error code, and response.
@@ -803,7 +801,7 @@
  * @returns {Error} The created error.
  */
       module.exports = function createError(message, config, code, response) {
-        const error = new Error(message);
+        var error = new Error(message);
         return enhanceError(error, config, code, response);
       };
 
@@ -815,8 +813,8 @@
 
       module.exports = function bind(fn, thisArg) {
         return function wrap() {
-          const args = new Array(arguments.length);
-          for (let i = 0; i < args.length; i++) {
+          var args = new Array(arguments.length);
+          for (var i = 0; i < args.length; i++) {
             args[i] = arguments[i];
           }
           return fn.apply(thisArg, args);
@@ -830,15 +828,15 @@
       'use strict';
 
       // shim for using process in browser
-      const process = (module.exports = {});
+      var process = (module.exports = {});
 
       // cached from whatever global is present so that test runners that stub it
       // don't break things.  But we need to wrap it in a try catch in case it is
       // wrapped in strict mode code which doesn't define any globals.  It's inside a
       // function because try/catches deoptimize in certain engines.
 
-      let cachedSetTimeout;
-      let cachedClearTimeout;
+      var cachedSetTimeout;
+      var cachedClearTimeout;
 
       function defaultSetTimout() {
         throw new Error('setTimeout has not been defined');
@@ -913,10 +911,10 @@
           }
         }
       }
-      let queue = [];
-      let draining = false;
-      let currentQueue;
-      let queueIndex = -1;
+      var queue = [];
+      var draining = false;
+      var currentQueue;
+      var queueIndex = -1;
 
       function cleanUpNextTick() {
         if (!draining || !currentQueue) {
@@ -937,10 +935,10 @@
         if (draining) {
           return;
         }
-        const timeout = runTimeout(cleanUpNextTick);
+        var timeout = runTimeout(cleanUpNextTick);
         draining = true;
 
-        let len = queue.length;
+        var len = queue.length;
         while (len) {
           currentQueue = queue;
           queue = [];
@@ -958,9 +956,9 @@
       }
 
       process.nextTick = function(fun) {
-        const args = new Array(arguments.length - 1);
+        var args = new Array(arguments.length - 1);
         if (arguments.length > 1) {
-          for (let i = 1; i < arguments.length; i++) {
+          for (var i = 1; i < arguments.length; i++) {
             args[i - 1] = arguments[i];
           }
         }
@@ -1028,9 +1026,9 @@
         if (!input) {
           return;
         }
-        const dropdown = new google.maps.places.Autocomplete(input);
+        var dropdown = new google.maps.places.Autocomplete(input);
         dropdown.addListener('place_changed', function() {
-          const place = dropdown.getPlace();
+          var place = dropdown.getPlace();
           latInput.value = place.geometry.location.lat();
           lngInput.value = place.geometry.location.lng();
         });
@@ -1055,24 +1053,24 @@
         value: true,
       });
 
-      const _axios = __webpack_require__(2);
+      var _axios = __webpack_require__(2);
 
-      const _axios2 = _interopRequireDefault(_axios);
+      var _axios2 = _interopRequireDefault(_axios);
 
-      const _bling = __webpack_require__(1);
+      var _bling = __webpack_require__(1);
 
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : { default: obj };
       }
 
       function ajaxHeart(e) {
-        const _this = this;
+        var _this = this;
 
         e.preventDefault();
         _axios2.default
           .post(this.action)
           .then(function(res) {
-            const isHearted = _this.heart.classList.toggle('heart__button--hearted');
+            var isHearted = _this.heart.classList.toggle('heart__button--hearted');
             (0, _bling.$)('.heart-count').textContent = res.data.hearts.length;
             if (isHearted) {
               _this.heart.classList.add('heart__button--float');
@@ -1098,31 +1096,25 @@
         value: true,
       });
 
-      const _slicedToArray = (function() {
+      var _slicedToArray = (function() {
         function sliceIterator(arr, i) {
-          const _arr = [];
-          let _n = true;
-          let _d = false;
-          let _e = undefined;
+          var _arr = [];
+          var _n = true;
+          var _d = false;
+          var _e = undefined;
           try {
             for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
               _arr.push(_s.value);
-              if (i && _arr.length === i) {
-                break;
-              }
+              if (i && _arr.length === i) break;
             }
           } catch (err) {
             _d = true;
             _e = err;
           } finally {
             try {
-              if (!_n && _i['return']) {
-                _i['return']();
-              }
+              if (!_n && _i['return']) _i['return']();
             } finally {
-              if (_d) {
-                throw _e;
-              }
+              if (_d) throw _e;
             }
           }
           return _arr;
@@ -1138,11 +1130,11 @@
         };
       })();
 
-      const _axios = __webpack_require__(2);
+      var _axios = __webpack_require__(2);
 
-      const _axios2 = _interopRequireDefault(_axios);
+      var _axios2 = _interopRequireDefault(_axios);
 
-      const _bling = __webpack_require__(1);
+      var _bling = __webpack_require__(1);
 
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : { default: obj };
@@ -1150,38 +1142,36 @@
 
       /* global google */
 
-      const mapOptions = {
+      var mapOptions = {
         center: { lat: 43.2, lng: -79.8 },
         zoom: 10,
       };
 
       function loadPlaces(map) {
-        const lat = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 43.2;
-        const lng = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : -79.8;
+        var lat = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 43.2;
+        var lng = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : -79.8;
 
         _axios2.default
-          .get(`/api/stores/near?lat=${lat}&lng=${lng}`)
+          .get('/api/stores/near?lat=' + lat + '&lng=' + lng)
           .then(function(res) {
-            const places = res.data;
+            var places = res.data;
             if (!places.length) {
               alert('no places found!');
               return;
             }
 
             // create bounds
-            const bounds = new google.maps.LatLngBounds();
-            const infoWindow = new google.maps.InfoWindow();
+            var bounds = new google.maps.LatLngBounds();
+            var infoWindow = new google.maps.InfoWindow();
 
-            const markers = places.map(function(place) {
-              const _place$location$coord = _slicedToArray(place.location.coordinates, 2);
+            var markers = places.map(function(place) {
+              var _place$location$coord = _slicedToArray(place.location.coordinates, 2),
+                placeLng = _place$location$coord[0],
+                placeLat = _place$location$coord[1];
 
-              const placeLng = _place$location$coord[0];
-
-              const placeLat = _place$location$coord[1];
-
-              const position = { lat: placeLat, lng: placeLng };
+              var position = { lat: placeLat, lng: placeLng };
               bounds.extend(position);
-              const marker = new google.maps.Marker({ map: map, position: position });
+              var marker = new google.maps.Marker({ map: map, position: position });
               marker.place = place;
               return marker;
             });
@@ -1189,13 +1179,18 @@
             // marker click
             markers.forEach(function(marker) {
               return marker.addListener('click', function() {
-                const html = `\n          <div class="popup">\n            <a href="/store/${
-                  this.place.slug
-                }">\n              <img src="/uploads/${this.place.photo || 'store.png'}" alt="${
-                  this.place.name
-                }" />\n              <p>${this.place.name} - ${
-                  this.place.location.address
-                }</p>\n            </a>\n          </div>\n        `;
+                var html =
+                  '\n          <div class="popup">\n            <a href="/store/' +
+                  this.place.slug +
+                  '">\n              <img src="/uploads/' +
+                  (this.place.photo || 'store.png') +
+                  '" alt="' +
+                  this.place.name +
+                  '" />\n              <p>' +
+                  this.place.name +
+                  ' - ' +
+                  this.place.location.address +
+                  '</p>\n            </a>\n          </div>\n        ';
                 infoWindow.setContent(html);
                 infoWindow.open(map, marker);
               });
@@ -1215,13 +1210,13 @@
           return;
         }
 
-        const map = new google.maps.Map(mapDiv, mapOptions);
+        var map = new google.maps.Map(mapDiv, mapOptions);
         loadPlaces(map);
 
-        const input = (0, _bling.$)('[name="geolocate"]');
-        const autocomplete = new google.maps.places.Autocomplete(input);
+        var input = (0, _bling.$)('[name="geolocate"]');
+        var autocomplete = new google.maps.places.Autocomplete(input);
         autocomplete.addListener('place_changed', function() {
-          const place = autocomplete.getPlace();
+          var place = autocomplete.getPlace();
           loadPlaces(map, place.geometry.location.lat(), place.geometry.location.lng());
         });
       }
@@ -1240,13 +1235,13 @@
         value: true,
       });
 
-      const _axios = __webpack_require__(2);
+      var _axios = __webpack_require__(2);
 
-      const _axios2 = _interopRequireDefault(_axios);
+      var _axios2 = _interopRequireDefault(_axios);
 
-      const _dompurify = __webpack_require__(32);
+      var _dompurify = __webpack_require__(32);
 
-      const _dompurify2 = _interopRequireDefault(_dompurify);
+      var _dompurify2 = _interopRequireDefault(_dompurify);
 
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : { default: obj };
@@ -1255,9 +1250,13 @@
       function searchResultsHTML(stores) {
         return stores
           .map(function(store) {
-            return `\n      <a href="/store/${
-              store.slug
-            }" class="search__result">\n        <strong>${store.name}</strong>\n      </a>\n    `;
+            return (
+              '\n      <a href="/store/' +
+              store.slug +
+              '" class="search__result">\n        <strong>' +
+              store.name +
+              '</strong>\n      </a>\n    '
+            );
           })
           .join('');
       }
@@ -1267,11 +1266,11 @@
           return;
         }
 
-        const searchInput = search.querySelector('input[name="search"]');
-        const searchResults = search.querySelector('.search__results');
+        var searchInput = search.querySelector('input[name="search"]');
+        var searchResults = search.querySelector('.search__results');
 
         searchInput.on('input', function() {
-          const _this = this;
+          var _this = this;
 
           if (!this.value) {
             searchResults.style.display = 'none';
@@ -1282,7 +1281,7 @@
           searchResults.innerHTML = '';
 
           _axios2.default
-            .get(`/api/search?q=${this.value}`)
+            .get('/api/search?q=' + this.value)
             .then(function(res) {
               if (res.data.length) {
                 searchResults.innerHTML = _dompurify2.default.sanitize(searchResultsHTML(res.data));
@@ -1290,7 +1289,7 @@
               }
 
               searchResults.innerHTML = _dompurify2.default.sanitize(
-                `<div className="search__results">No results for ${_this.value} found!</div>`,
+                '<div className="search__results">No results for ' + _this.value + ' found!</div>',
               );
             })
             .catch(function(e) {
@@ -1303,10 +1302,10 @@
             return;
           }
 
-          const activeClass = 'search__result--active';
-          const current = search.querySelector(`.${activeClass}`);
-          const items = search.querySelectorAll('.search__result');
-          let next = void 0;
+          var activeClass = 'search__result--active';
+          var current = search.querySelector('.' + activeClass);
+          var items = search.querySelectorAll('.search__result');
+          var next = void 0;
 
           if (e.keyCode === 40 && current) {
             next = current.nextElementSibling || items[0];
@@ -1341,10 +1340,10 @@
     /***/ function(module, exports, __webpack_require__) {
       'use strict';
 
-      const utils = __webpack_require__(0);
-      const bind = __webpack_require__(8);
-      const Axios = __webpack_require__(17);
-      const defaults = __webpack_require__(3);
+      var utils = __webpack_require__(0);
+      var bind = __webpack_require__(8);
+      var Axios = __webpack_require__(17);
+      var defaults = __webpack_require__(3);
 
       /**
        * Create an instance of Axios
@@ -1353,8 +1352,8 @@
        * @return {Axios} A new instance of Axios
        */
       function createInstance(defaultConfig) {
-        const context = new Axios(defaultConfig);
-        const instance = bind(Axios.prototype.request, context);
+        var context = new Axios(defaultConfig);
+        var instance = bind(Axios.prototype.request, context);
 
         // Copy axios.prototype to instance
         utils.extend(instance, Axios.prototype, context);
@@ -1366,7 +1365,7 @@
       }
 
       // Create the default instance to be exported
-      const axios = createInstance(defaults);
+      var axios = createInstance(defaults);
 
       // Expose Axios class to allow class inheritance
       axios.Axios = Axios;
@@ -1398,7 +1397,7 @@
     /***/ function(module, exports, __webpack_require__) {
       'use strict';
 
-      const Cancel = __webpack_require__(5);
+      var Cancel = __webpack_require__(5);
 
       /**
        * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -1411,12 +1410,12 @@
           throw new TypeError('executor must be a function.');
         }
 
-        let resolvePromise;
+        var resolvePromise;
         this.promise = new Promise(function promiseExecutor(resolve) {
           resolvePromise = resolve;
         });
 
-        const token = this;
+        var token = this;
         executor(function cancel(message) {
           if (token.reason) {
             // Cancellation has already been requested
@@ -1442,8 +1441,8 @@
        * cancels the `CancelToken`.
        */
       CancelToken.source = function source() {
-        let cancel;
-        const token = new CancelToken(function executor(c) {
+        var cancel;
+        var token = new CancelToken(function executor(c) {
           cancel = c;
         });
         return {
@@ -1460,12 +1459,12 @@
     /***/ function(module, exports, __webpack_require__) {
       'use strict';
 
-      const defaults = __webpack_require__(3);
-      const utils = __webpack_require__(0);
-      const InterceptorManager = __webpack_require__(18);
-      const dispatchRequest = __webpack_require__(19);
-      const isAbsoluteURL = __webpack_require__(27);
-      const combineURLs = __webpack_require__(25);
+      var defaults = __webpack_require__(3);
+      var utils = __webpack_require__(0);
+      var InterceptorManager = __webpack_require__(18);
+      var dispatchRequest = __webpack_require__(19);
+      var isAbsoluteURL = __webpack_require__(27);
+      var combineURLs = __webpack_require__(25);
 
       /**
        * Create a new instance of Axios
@@ -1505,8 +1504,8 @@
         }
 
         // Hook up interceptors middleware
-        const chain = [dispatchRequest, undefined];
-        let promise = Promise.resolve(config);
+        var chain = [dispatchRequest, undefined];
+        var promise = Promise.resolve(config);
 
         this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
           chain.unshift(interceptor.fulfilled, interceptor.rejected);
@@ -1557,7 +1556,7 @@
     /***/ function(module, exports, __webpack_require__) {
       'use strict';
 
-      const utils = __webpack_require__(0);
+      var utils = __webpack_require__(0);
 
       function InterceptorManager() {
         this.handlers = [];
@@ -1614,10 +1613,10 @@
     /***/ function(module, exports, __webpack_require__) {
       'use strict';
 
-      const utils = __webpack_require__(0);
-      const transformData = __webpack_require__(22);
-      const isCancel = __webpack_require__(6);
-      const defaults = __webpack_require__(3);
+      var utils = __webpack_require__(0);
+      var transformData = __webpack_require__(22);
+      var isCancel = __webpack_require__(6);
+      var defaults = __webpack_require__(3);
 
       /**
        * Throws a `Cancel` if cancellation has been requested.
@@ -1657,7 +1656,7 @@
           },
         );
 
-        const adapter = config.adapter || defaults.adapter;
+        var adapter = config.adapter || defaults.adapter;
 
         return adapter(config).then(
           function onAdapterResolution(response) {
@@ -1722,7 +1721,7 @@
     /***/ function(module, exports, __webpack_require__) {
       'use strict';
 
-      const createError = __webpack_require__(7);
+      var createError = __webpack_require__(7);
 
       /**
        * Resolve or reject a Promise based on response status.
@@ -1732,14 +1731,14 @@
        * @param {object} response The response.
        */
       module.exports = function settle(resolve, reject, response) {
-        const validateStatus = response.config.validateStatus;
+        var validateStatus = response.config.validateStatus;
         // Note: status is not exposed by XDomainRequest
         if (!response.status || !validateStatus || validateStatus(response.status)) {
           resolve(response);
         } else {
           reject(
             createError(
-              `Request failed with status code ${response.status}`,
+              'Request failed with status code ' + response.status,
               response.config,
               null,
               response,
@@ -1754,7 +1753,7 @@
     /***/ function(module, exports, __webpack_require__) {
       'use strict';
 
-      const utils = __webpack_require__(0);
+      var utils = __webpack_require__(0);
 
       /**
        * Transform the data for a request or a response
@@ -1781,7 +1780,7 @@
 
       // btoa polyfill for IE<10 courtesy https://github.com/davidchambers/Base64.js
 
-      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+      var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
 
       function E() {
         this.message = 'String contains an invalid character';
@@ -1791,8 +1790,8 @@
       E.prototype.name = 'InvalidCharacterError';
 
       function btoa(input) {
-        const str = String(input);
-        let output = '';
+        var str = String(input);
+        var output = '';
         for (
           // initialize result and counter
           var block, charCode, idx = 0, map = chars;
@@ -1820,7 +1819,7 @@
     /***/ function(module, exports, __webpack_require__) {
       'use strict';
 
-      const utils = __webpack_require__(0);
+      var utils = __webpack_require__(0);
 
       function encode(val) {
         return encodeURIComponent(val)
@@ -1846,13 +1845,13 @@
           return url;
         }
 
-        let serializedParams;
+        var serializedParams;
         if (paramsSerializer) {
           serializedParams = paramsSerializer(params);
         } else if (utils.isURLSearchParams(params)) {
           serializedParams = params.toString();
         } else {
-          const parts = [];
+          var parts = [];
 
           utils.forEach(params, function serialize(val, key) {
             if (val === null || typeof val === 'undefined') {
@@ -1860,7 +1859,7 @@
             }
 
             if (utils.isArray(val)) {
-              key = `${key}[]`;
+              key = key + '[]';
             }
 
             if (!utils.isArray(val)) {
@@ -1873,7 +1872,7 @@
               } else if (utils.isObject(v)) {
                 v = JSON.stringify(v);
               }
-              parts.push(`${encode(key)}=${encode(v)}`);
+              parts.push(encode(key) + '=' + encode(v));
             });
           });
 
@@ -1902,7 +1901,7 @@
        */
 
       module.exports = function combineURLs(baseURL, relativeURL) {
-        return `${baseURL.replace(/\/+$/, '')}/${relativeURL.replace(/^\/+/, '')}`;
+        return baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '');
       };
 
       /***/
@@ -1911,26 +1910,26 @@
     /***/ function(module, exports, __webpack_require__) {
       'use strict';
 
-      const utils = __webpack_require__(0);
+      var utils = __webpack_require__(0);
 
       module.exports = utils.isStandardBrowserEnv()
         ? // Standard browser envs support document.cookie
           (function standardBrowserEnv() {
             return {
               write: function write(name, value, expires, path, domain, secure) {
-                const cookie = [];
-                cookie.push(`${name}=${encodeURIComponent(value)}`);
+                var cookie = [];
+                cookie.push(name + '=' + encodeURIComponent(value));
 
                 if (utils.isNumber(expires)) {
-                  cookie.push(`expires=${new Date(expires).toGMTString()}`);
+                  cookie.push('expires=' + new Date(expires).toGMTString());
                 }
 
                 if (utils.isString(path)) {
-                  cookie.push(`path=${path}`);
+                  cookie.push('path=' + path);
                 }
 
                 if (utils.isString(domain)) {
-                  cookie.push(`domain=${domain}`);
+                  cookie.push('domain=' + domain);
                 }
 
                 if (secure === true) {
@@ -1941,7 +1940,7 @@
               },
 
               read: function read(name) {
-                const match = document.cookie.match(new RegExp(`(^|;\\s*)(${name})=([^;]*)`));
+                var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
                 return match ? decodeURIComponent(match[3]) : null;
               },
 
@@ -1987,15 +1986,15 @@
     /***/ function(module, exports, __webpack_require__) {
       'use strict';
 
-      const utils = __webpack_require__(0);
+      var utils = __webpack_require__(0);
 
       module.exports = utils.isStandardBrowserEnv()
         ? // Standard browser envs have full support of the APIs needed to test
           // whether the request URL is of the same origin as current location.
           (function standardBrowserEnv() {
-            const msie = /(msie|trident)/i.test(navigator.userAgent);
-            const urlParsingNode = document.createElement('a');
-            let originURL;
+            var msie = /(msie|trident)/i.test(navigator.userAgent);
+            var urlParsingNode = document.createElement('a');
+            var originURL;
 
             /**
              * Parse a URL to discover it's components
@@ -2004,7 +2003,7 @@
              * @returns {Object}
              */
             function resolveURL(url) {
-              let href = url;
+              var href = url;
 
               if (msie) {
                 // IE needs attribute set twice to normalize properties
@@ -2026,7 +2025,7 @@
                 pathname:
                   urlParsingNode.pathname.charAt(0) === '/'
                     ? urlParsingNode.pathname
-                    : `/${urlParsingNode.pathname}`,
+                    : '/' + urlParsingNode.pathname,
               };
             }
 
@@ -2039,7 +2038,7 @@
              * @returns {boolean} True if URL shares the same origin, otherwise false
              */
             return function isURLSameOrigin(requestURL) {
-              const parsed = utils.isString(requestURL) ? resolveURL(requestURL) : requestURL;
+              var parsed = utils.isString(requestURL) ? resolveURL(requestURL) : requestURL;
               return parsed.protocol === originURL.protocol && parsed.host === originURL.host;
             };
           })()
@@ -2056,7 +2055,7 @@
     /***/ function(module, exports, __webpack_require__) {
       'use strict';
 
-      const utils = __webpack_require__(0);
+      var utils = __webpack_require__(0);
 
       module.exports = function normalizeHeaderName(headers, normalizedName) {
         utils.forEach(headers, function processHeader(value, name) {
@@ -2073,7 +2072,7 @@
     /***/ function(module, exports, __webpack_require__) {
       'use strict';
 
-      const utils = __webpack_require__(0);
+      var utils = __webpack_require__(0);
 
       /**
        * Parse headers into an object
@@ -2089,10 +2088,10 @@
        * @returns {Object} Headers parsed into an object
        */
       module.exports = function parseHeaders(headers) {
-        const parsed = {};
-        let key;
-        let val;
-        let i;
+        var parsed = {};
+        var key;
+        var val;
+        var i;
 
         if (!headers) {
           return parsed;
@@ -2104,7 +2103,7 @@
           val = utils.trim(line.substr(i + 1));
 
           if (key) {
-            parsed[key] = parsed[key] ? `${parsed[key]}, ${val}` : val;
+            parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
           }
         });
 
@@ -2149,9 +2148,9 @@
     /* 32 */
     /***/ function(module, exports, __webpack_require__) {
       'use strict';
-      let __WEBPACK_AMD_DEFINE_RESULT__;
+      var __WEBPACK_AMD_DEFINE_RESULT__;
 
-      const _typeof =
+      var _typeof =
         typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol'
           ? function(obj) {
               return typeof obj;
@@ -2169,7 +2168,7 @@
         'use strict';
         /* global window: false, define: false, module: false */
 
-        const root = typeof window === 'undefined' ? null : window;
+        var root = typeof window === 'undefined' ? null : window;
 
         if (true) {
           !((__WEBPACK_AMD_DEFINE_RESULT__ = function() {
@@ -2185,7 +2184,7 @@
       })(function factory(window) {
         'use strict';
 
-        const DOMPurify = function DOMPurify(window) {
+        var DOMPurify = function DOMPurify(window) {
           return factory(window);
         };
 
@@ -2208,16 +2207,16 @@
           return DOMPurify;
         }
 
-        let document = window.document;
-        const originalDocument = document;
-        const DocumentFragment = window.DocumentFragment;
-        const HTMLTemplateElement = window.HTMLTemplateElement;
-        const Node = window.Node;
-        const NodeFilter = window.NodeFilter;
-        const NamedNodeMap = window.NamedNodeMap || window.MozNamedAttrMap;
-        const Text = window.Text;
-        const Comment = window.Comment;
-        const DOMParser = window.DOMParser;
+        var document = window.document;
+        var originalDocument = document;
+        var DocumentFragment = window.DocumentFragment;
+        var HTMLTemplateElement = window.HTMLTemplateElement;
+        var Node = window.Node;
+        var NodeFilter = window.NodeFilter;
+        var NamedNodeMap = window.NamedNodeMap || window.MozNamedAttrMap;
+        var Text = window.Text;
+        var Comment = window.Comment;
+        var DOMParser = window.DOMParser;
 
         // As per issue #47, the web-components registry is inherited by a
         // new document created via createHTMLDocument. As per the spec
@@ -2226,18 +2225,18 @@
         // document, so we use that as our parent document to ensure nothing
         // is inherited.
         if (typeof HTMLTemplateElement === 'function') {
-          const template = document.createElement('template');
+          var template = document.createElement('template');
           if (template.content && template.content.ownerDocument) {
             document = template.content.ownerDocument;
           }
         }
-        const implementation = document.implementation;
-        const createNodeIterator = document.createNodeIterator;
-        const getElementsByTagName = document.getElementsByTagName;
-        const createDocumentFragment = document.createDocumentFragment;
-        const importNode = originalDocument.importNode;
+        var implementation = document.implementation;
+        var createNodeIterator = document.createNodeIterator;
+        var getElementsByTagName = document.getElementsByTagName;
+        var createDocumentFragment = document.createDocumentFragment;
+        var importNode = originalDocument.importNode;
 
-        let hooks = {};
+        var hooks = {};
 
         /**
          * Expose whether this browser supports running the full DOMPurify.
@@ -2246,8 +2245,8 @@
           typeof implementation.createHTMLDocument !== 'undefined' && document.documentMode !== 9;
 
         /* Add properties to a lookup table */
-        const _addToSet = function _addToSet(set, array) {
-          let l = array.length;
+        var _addToSet = function _addToSet(set, array) {
+          var l = array.length;
           while (l--) {
             if (typeof array[l] === 'string') {
               array[l] = array[l].toLowerCase();
@@ -2258,9 +2257,9 @@
         };
 
         /* Shallow clone an object */
-        const _cloneObj = function _cloneObj(object) {
-          const newObject = {};
-          let property;
+        var _cloneObj = function _cloneObj(object) {
+          var newObject = {};
+          var property;
           for (property in object) {
             if (object.hasOwnProperty(property)) {
               newObject[property] = object[property];
@@ -2275,8 +2274,8 @@
          */
 
         /* allowed element names */
-        let ALLOWED_TAGS = null;
-        const DEFAULT_ALLOWED_TAGS = _addToSet({}, [
+        var ALLOWED_TAGS = null;
+        var DEFAULT_ALLOWED_TAGS = _addToSet({}, [
           // HTML
           'a',
           'abbr',
@@ -2495,8 +2494,8 @@
         ]);
 
         /* Allowed attribute names */
-        let ALLOWED_ATTR = null;
-        const DEFAULT_ALLOWED_ATTR = _addToSet({}, [
+        var ALLOWED_ATTR = null;
+        var DEFAULT_ALLOWED_ATTR = _addToSet({}, [
           // HTML
           'accept',
           'action',
@@ -2802,54 +2801,54 @@
         ]);
 
         /* Explicitly forbidden tags (overrides ALLOWED_TAGS/ADD_TAGS) */
-        let FORBID_TAGS = null;
+        var FORBID_TAGS = null;
 
         /* Explicitly forbidden attributes (overrides ALLOWED_ATTR/ADD_ATTR) */
-        let FORBID_ATTR = null;
+        var FORBID_ATTR = null;
 
         /* Decide if custom data attributes are okay */
-        let ALLOW_DATA_ATTR = true;
+        var ALLOW_DATA_ATTR = true;
 
         /* Decide if unknown protocols are okay */
-        let ALLOW_UNKNOWN_PROTOCOLS = false;
+        var ALLOW_UNKNOWN_PROTOCOLS = false;
 
         /* Output should be safe for jQuery's $() factory? */
-        let SAFE_FOR_JQUERY = false;
+        var SAFE_FOR_JQUERY = false;
 
         /* Output should be safe for common template engines.
          * This means, DOMPurify removes data attributes, mustaches and ERB
          */
-        let SAFE_FOR_TEMPLATES = false;
+        var SAFE_FOR_TEMPLATES = false;
 
         /* Specify template detection regex for SAFE_FOR_TEMPLATES mode */
-        const MUSTACHE_EXPR = /\{\{[\s\S]*|[\s\S]*\}\}/gm;
-        const ERB_EXPR = /<%[\s\S]*|[\s\S]*%>/gm;
+        var MUSTACHE_EXPR = /\{\{[\s\S]*|[\s\S]*\}\}/gm;
+        var ERB_EXPR = /<%[\s\S]*|[\s\S]*%>/gm;
 
         /* Decide if document with <html>... should be returned */
-        let WHOLE_DOCUMENT = false;
+        var WHOLE_DOCUMENT = false;
 
         /* Decide if a DOM `HTMLBodyElement` should be returned, instead of a html string.
          * If `WHOLE_DOCUMENT` is enabled a `HTMLHtmlElement` will be returned instead
          */
-        let RETURN_DOM = false;
+        var RETURN_DOM = false;
 
         /* Decide if a DOM `DocumentFragment` should be returned, instead of a html string */
-        let RETURN_DOM_FRAGMENT = false;
+        var RETURN_DOM_FRAGMENT = false;
 
         /* If `RETURN_DOM` or `RETURN_DOM_FRAGMENT` is enabled, decide if the returned DOM
          * `Node` is imported into the current `Document`. If this flag is not enabled the
          * `Node` will belong (its ownerDocument) to a fresh `HTMLDocument`, created by
          * DOMPurify. */
-        let RETURN_DOM_IMPORT = false;
+        var RETURN_DOM_IMPORT = false;
 
         /* Output should be free from DOM clobbering attacks? */
-        let SANITIZE_DOM = true;
+        var SANITIZE_DOM = true;
 
         /* Keep element content when removing element? */
-        let KEEP_CONTENT = true;
+        var KEEP_CONTENT = true;
 
         /* Tags to ignore content of when KEEP_CONTENT is true */
-        const FORBID_CONTENTS = _addToSet({}, [
+        var FORBID_CONTENTS = _addToSet({}, [
           'audio',
           'head',
           'math',
@@ -2860,10 +2859,10 @@
         ]);
 
         /* Tags that are safe for data: URIs */
-        const DATA_URI_TAGS = _addToSet({}, ['audio', 'video', 'img', 'source']);
+        var DATA_URI_TAGS = _addToSet({}, ['audio', 'video', 'img', 'source']);
 
         /* Attributes safe for values like "javascript:" */
-        const URI_SAFE_ATTRIBUTES = _addToSet({}, [
+        var URI_SAFE_ATTRIBUTES = _addToSet({}, [
           'alt',
           'class',
           'for',
@@ -2880,19 +2879,19 @@
         ]);
 
         /* Keep a reference to config to pass to hooks */
-        let CONFIG = null;
+        var CONFIG = null;
 
         /* Ideally, do not touch anything below this line */
         /* ______________________________________________ */
 
-        const formElement = document.createElement('form');
+        var formElement = document.createElement('form');
 
         /**
          * _parseConfig
          *
          * @param  optional config literal
          */
-        const _parseConfig = function _parseConfig(cfg) {
+        var _parseConfig = function _parseConfig(cfg) {
           /* Shield configuration object from tampering */
           if ((typeof cfg === 'undefined' ? 'undefined' : _typeof(cfg)) !== 'object') {
             cfg = {};
@@ -2960,7 +2959,7 @@
          *
          * @param  a DOM node
          */
-        const _forceRemove = function _forceRemove(node) {
+        var _forceRemove = function _forceRemove(node) {
           DOMPurify.removed.push({ element: node });
           try {
             node.parentNode.removeChild(node);
@@ -2975,7 +2974,7 @@
          * @param  an Attribute name
          * @param  a DOM node
          */
-        const _removeAttribute = function _removeAttribute(name, node) {
+        var _removeAttribute = function _removeAttribute(name, node) {
           DOMPurify.removed.push({
             attribute: node.getAttributeNode(name),
             from: node,
@@ -2989,10 +2988,9 @@
          * @param  a string of dirty markup
          * @return a DOM, filled with the dirty markup
          */
-        const _initDocument = function _initDocument(dirty) {
+        var _initDocument = function _initDocument(dirty) {
           /* Create a HTML document using DOMParser */
-          let doc;
-          let body;
+          var doc, body;
           try {
             doc = new DOMParser().parseFromString(dirty, 'text/html');
           } catch (e) {}
@@ -3020,7 +3018,7 @@
          * @param  document/fragment to create iterator for
          * @return iterator instance
          */
-        const _createIterator = function _createIterator(root) {
+        var _createIterator = function _createIterator(root) {
           return createNodeIterator.call(
             root.ownerDocument || root,
             root,
@@ -3038,7 +3036,7 @@
          * @param  element to check for clobbering attacks
          * @return true if clobbered, false if safe
          */
-        const _isClobbered = function _isClobbered(elm) {
+        var _isClobbered = function _isClobbered(elm) {
           if (elm instanceof Text || elm instanceof Comment) {
             return false;
           }
@@ -3061,7 +3059,7 @@
          * @param object to check whether it's a DOM node
          * @return true is object is a DOM node
          */
-        const _isNode = function _isNode(obj) {
+        var _isNode = function _isNode(obj) {
           return (typeof Node === 'undefined' ? 'undefined' : _typeof(Node)) === 'object'
             ? obj instanceof Node
             : obj &&
@@ -3080,9 +3078,8 @@
          * @param   node to check for permission to exist
          * @return  true if node was killed, false if left alive
          */
-        const _sanitizeElements = function _sanitizeElements(currentNode) {
-          let tagName;
-          let content;
+        var _sanitizeElements = function _sanitizeElements(currentNode) {
+          var tagName, content;
           /* Execute a hook if present */
           _executeHook('beforeSanitizeElements', currentNode, null);
 
@@ -3146,11 +3143,11 @@
           return false;
         };
 
-        const DATA_ATTR = /^data-[\-\w.\u00B7-\uFFFF]/;
-        const IS_ALLOWED_URI = /^(?:(?:(?:f|ht)tps?|mailto|tel):|[^a-z]|[a-z+.\-]+(?:[^a-z+.\-:]|$))/i;
-        const IS_SCRIPT_OR_DATA = /^(?:\w+script|data):/i;
+        var DATA_ATTR = /^data-[\-\w.\u00B7-\uFFFF]/;
+        var IS_ALLOWED_URI = /^(?:(?:(?:f|ht)tps?|mailto|tel):|[^a-z]|[a-z+.\-]+(?:[^a-z+.\-:]|$))/i;
+        var IS_SCRIPT_OR_DATA = /^(?:\w+script|data):/i;
         /* This needs to be extensive thanks to Webkit/Blink's behavior */
-        const ATTR_WHITESPACE = /[\x00-\x20\xA0\u1680\u180E\u2000-\u2029\u205f\u3000]/g;
+        var ATTR_WHITESPACE = /[\x00-\x20\xA0\u1680\u180E\u2000-\u2029\u205f\u3000]/g;
 
         /**
          * _sanitizeAttributes
@@ -3163,15 +3160,8 @@
          * @param   node to sanitize
          * @return  void
          */
-        const _sanitizeAttributes = function _sanitizeAttributes(currentNode) {
-          let attr;
-          let name;
-          let value;
-          let lcName;
-          let idAttr;
-          let attributes;
-          let hookEvent;
-          let l;
+        var _sanitizeAttributes = function _sanitizeAttributes(currentNode) {
+          var attr, name, value, lcName, idAttr, attributes, hookEvent, l;
           /* Execute a hook if present */
           _executeHook('beforeSanitizeAttributes', currentNode, null);
 
@@ -3314,9 +3304,9 @@
          * @param  fragment to iterate over recursively
          * @return void
          */
-        const _sanitizeShadowDOM = function _sanitizeShadowDOM(fragment) {
-          let shadowNode;
-          const shadowIterator = _createIterator(fragment);
+        var _sanitizeShadowDOM = function _sanitizeShadowDOM(fragment) {
+          var shadowNode;
+          var shadowIterator = _createIterator(fragment);
 
           /* Execute a hook if present */
           _executeHook('beforeSanitizeShadowDOM', fragment, null);
@@ -3368,12 +3358,7 @@
          * @param {Object} configuration object
          */
         DOMPurify.sanitize = function(dirty, cfg) {
-          let body;
-          let importedNode;
-          let currentNode;
-          let oldNode;
-          let nodeIterator;
-          let returnNode;
+          var body, importedNode, currentNode, oldNode, nodeIterator, returnNode;
           /* Make sure we have a string to sanitize.
            DO NOT return early, as this will return the wrong type if
            the user has requested a DOM object rather than a string */
@@ -3553,23 +3538,23 @@
 
       __webpack_require__(14);
 
-      const _bling = __webpack_require__(1);
+      var _bling = __webpack_require__(1);
 
-      const _autocomplete = __webpack_require__(10);
+      var _autocomplete = __webpack_require__(10);
 
-      const _autocomplete2 = _interopRequireDefault(_autocomplete);
+      var _autocomplete2 = _interopRequireDefault(_autocomplete);
 
-      const _typeAhead = __webpack_require__(13);
+      var _typeAhead = __webpack_require__(13);
 
-      const _typeAhead2 = _interopRequireDefault(_typeAhead);
+      var _typeAhead2 = _interopRequireDefault(_typeAhead);
 
-      const _map = __webpack_require__(12);
+      var _map = __webpack_require__(12);
 
-      const _map2 = _interopRequireDefault(_map);
+      var _map2 = _interopRequireDefault(_map);
 
-      const _heart = __webpack_require__(11);
+      var _heart = __webpack_require__(11);
 
-      const _heart2 = _interopRequireDefault(_heart);
+      var _heart2 = _interopRequireDefault(_heart);
 
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : { default: obj };
@@ -3585,7 +3570,7 @@
 
       (0, _map2.default)((0, _bling.$)('#map'));
 
-      const heartForms = (0, _bling.$$)('form.heart');
+      var heartForms = (0, _bling.$$)('form.heart');
       heartForms.on('submit', _heart2.default);
 
       /***/
